@@ -1,0 +1,20 @@
+cluster_endpoint=$(aws eks describe-cluster \
+    --region $region_code \
+    --name $cluster_name \
+    --query "cluster.endpoint" \
+    --output text)
+	
+	aws eks update-kubeconfig --region us-east-1 --name eks-cluster
+	Updated context arn:aws:eks:us-east-1:804465342881:cluster/eks-cluster in /home/ubuntu/.kube/config
+	
+	aws eks update-kubeconfig --region region-code --name my-cluster
+	
+	arn:aws:eks:us-east-1:804465342881:cluster/eks-cluster
+	aws eks update-kubeconfig --name eks-cluster --region us-east-1 --role-arn arn:aws:iam::804465342881:role/eksrole
+	
+	
+	
+	aws cloudformation create-stack \
+  --region region-code \
+  --stack-name my-eks-vpc-stack \
+  --template-url https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml
